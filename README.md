@@ -1,22 +1,14 @@
 # Helix MCP Server
 
-[![CI](https://github.com/cloudadoption/helix-mcp/actions/workflows/main.yml/badge.svg)](https://github.com/cloudadoption/helix-mcp/actions/workflows/main.yml)
+[![CI](https://github.com/jindaliiita/eds-mcp/actions/workflows/main.yml/badge.svg)](https://github.com/jindaliiita/eds-mcp/actions/workflows/main.yml)
 
 An MCP (Model Context Protocol) server that provides tools to enable developers and administators of sites deployed with AEM Edge Delivery Services and Document Authoring.
-
-## 🚀 Quick Links
-
-- **[Quick Start Guide](./QUICK_START.md)** - Get started in 2 minutes
-- **[Usage Guide](./USAGE.md)** - Detailed configuration for different scenarios
-- **[Examples](./examples/README.md)** - Usage examples and test scripts
 
 ## Features
 
 ### Tools
 
 - **page-status** - Retrieves the status of a single page including when it was last published, previewed, and edited, along with who performed those actions.
-- **update-preview** - Updates/refreshes the preview of a specific page in AEM Edge Delivery Services, pulling the latest content from the source.
-- **publish-resource** - Publishes a page or resource to the live production environment, making content publicly accessible.
 - **start-bulk-status** - Initiates a bulk status check for multiple pages in a site, returning a job ID for tracking the asynchronous operation.
 - **check-bulk-status** - Checks the status of a bulk page status job and retrieves results for all pages including their publishing and preview status.
 - **audit-log** - Retrieves detailed audit logs from the AEM Edge Delivery Services repository showing user activities, system operations, and performance metrics.
@@ -24,6 +16,8 @@ An MCP (Model Context Protocol) server that provides tools to enable developers 
 - **aem-docs-search** - Searches the AEM documentation at www.aem.live for specific topics, features, or guidance.
 - **block-list** - Retrieve the list of blocks in the AEM Block Collection
 - **block-details** - Retrieve the details for the implementation of a specific block in the AEM Block Collection
+- **update-preview** - Updates/refreshes the preview of a specific page by pulling the latest content from the source (e.g., SharePoint, Google Docs) and updating the preview environment.
+- **publish-resource** - Publishes a specific page or resource to the live environment, taking content from preview and making it publicly accessible on production.
 
 ### Prompts
 
@@ -39,43 +33,9 @@ This project uses ESLint for code quality and consistency. The linting configura
 
 ## Usage
 
-### Quick Setup for Any Project
-
-Want to use this MCP server in your project? Run our setup script:
-
-```bash
-# Navigate to your project directory
-cd /path/to/your/project
-
-# Run the setup script
-curl -fsSL https://raw.githubusercontent.com/cloudadoption/helix-mcp/main/setup-project.sh | bash
-```
-
-Or manually configure it:
-
-```bash
-mkdir -p .cursor
-cat > .cursor/mcp.json << 'EOF'
-{
-  "mcpServers": {
-    "helix-mcp-server": {
-      "command": "npx",
-      "args": ["github:cloudadoption/helix-mcp"],
-      "env": {
-        "HELIX_ADMIN_API_TOKEN": "${HELIX_ADMIN_API_TOKEN}",
-        "RUM_DOMAIN_KEY": "${RUM_DOMAIN_KEY}"
-      }
-    }
-  }
-}
-EOF
-```
-
-See [USAGE.md](./USAGE.md) for detailed configuration options and usage examples.
-
 ### Cursor AI setup
 
-[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=helix-mcp-server&config=eyJjb21tYW5kIjoibnB4IGh0dHBzOi8vZ2l0aHViLmNvbS9jbG91ZGFkb3B0aW9uL2hlbGl4LW1jcCIsImVudiI6eyJIRUxJWF9BRE1JTl9BUElfVE9LRU4iOiJ5b3VyX2FwaV90b2tlbl9oZXJlIiwiUlVNX0RPTUFJTl9LRVkiOiJ5b3VyX3J1bV9kb21haW5fa2V5In19)
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=helix-mcp-server&config=eyJjb21tYW5kIjoibnB4IGdpdEBnaXRodWIuY29tOmppbmRhbGlpaXRhL2Vkcy1tY3AuZ2l0IiwiZW52Ijp7IkhFTElYX0FETUlOX0FQSV9UT0tFTiI6InlvdXJfYXBpX3Rva2VuX2hlcmUiLCJSVU1fRE9NQUlOX0tFWSI6InlvdXJfcnVtX2RvbWFpbl9rZXkifX0=)
 
 To use this MCP server with Cursor AI, go to `Cursor Settings`, `MCP` and a `New global MCP server`. Add this entry to your list of `mcpServers`:
 
@@ -83,7 +43,7 @@ To use this MCP server with Cursor AI, go to `Cursor Settings`, `MCP` and a `New
 "helix-mcp-server": {
   "command": "npx",
   "args": [
-    "https://github.com/cloudadoption/helix-mcp"
+    "https://github.com/jindaliiita/eds-mcp"
   ],
   "env": {
     "HELIX_ADMIN_API_TOKEN": "your_api_token_here",
@@ -108,7 +68,7 @@ To use this MCP server with VS Code and GitHub Copilot:
     "helix-mcp-server": {
       "command": "npx",
       "args": [
-        "https://github.com/cloudadoption/helix-mcp"
+        "https://github.com/jindaliiita/eds-mcp"
       ],
       "env": {
        "HELIX_ADMIN_API_TOKEN": "your_api_token_here",
