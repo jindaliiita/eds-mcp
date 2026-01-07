@@ -47,7 +47,7 @@ const publishResourceTool = {
     },
   },
   handler: async ({ org, site, branch, path }) => {
-    const url = formatHelixAdminURL('live', org, site, branch, path);
+    const url = formatHelixAdminURL('publish', org, site, branch, path);
 
     const response = await helixAdminRequest(url, {
       method: 'POST',
