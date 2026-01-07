@@ -6,6 +6,8 @@ import rumDataTool from './rum-bundles.js';
 import { startBulkStatusTool, checkBulkStatusTool } from './bulk-status.js';
 import aemDocsSearchTool from './aem-docs-search.js';
 import { blockListTool, blockDetailsTool } from './block-collection.js';
+import updatePreviewTool from './update-preview.js';
+import publishResourceTool from './publish-resource.js';
 
 const tools = [
   pageStatusTool,
@@ -16,6 +18,8 @@ const tools = [
   aemDocsSearchTool,
   blockListTool,
   blockDetailsTool,
+  updatePreviewTool,
+  publishResourceTool,
 ];
 
 /**

@@ -4,11 +4,19 @@
 
 An MCP (Model Context Protocol) server that provides tools to enable developers and administators of sites deployed with AEM Edge Delivery Services and Document Authoring.
 
+## 🚀 Quick Links
+
+- **[Quick Start Guide](./QUICK_START.md)** - Get started in 2 minutes
+- **[Usage Guide](./USAGE.md)** - Detailed configuration for different scenarios
+- **[Examples](./examples/README.md)** - Usage examples and test scripts
+
 ## Features
 
 ### Tools
 
 - **page-status** - Retrieves the status of a single page including when it was last published, previewed, and edited, along with who performed those actions.
+- **update-preview** - Updates/refreshes the preview of a specific page in AEM Edge Delivery Services, pulling the latest content from the source.
+- **publish-resource** - Publishes a page or resource to the live production environment, making content publicly accessible.
 - **start-bulk-status** - Initiates a bulk status check for multiple pages in a site, returning a job ID for tracking the asynchronous operation.
 - **check-bulk-status** - Checks the status of a bulk page status job and retrieves results for all pages including their publishing and preview status.
 - **audit-log** - Retrieves detailed audit logs from the AEM Edge Delivery Services repository showing user activities, system operations, and performance metrics.
@@ -30,6 +38,40 @@ This project uses ESLint for code quality and consistency. The linting configura
 - `npm run lint:fix` - Automatically fix linting issues where possible
 
 ## Usage
+
+### Quick Setup for Any Project
+
+Want to use this MCP server in your project? Run our setup script:
+
+```bash
+# Navigate to your project directory
+cd /path/to/your/project
+
+# Run the setup script
+curl -fsSL https://raw.githubusercontent.com/cloudadoption/helix-mcp/main/setup-project.sh | bash
+```
+
+Or manually configure it:
+
+```bash
+mkdir -p .cursor
+cat > .cursor/mcp.json << 'EOF'
+{
+  "mcpServers": {
+    "helix-mcp-server": {
+      "command": "npx",
+      "args": ["github:cloudadoption/helix-mcp"],
+      "env": {
+        "HELIX_ADMIN_API_TOKEN": "${HELIX_ADMIN_API_TOKEN}",
+        "RUM_DOMAIN_KEY": "${RUM_DOMAIN_KEY}"
+      }
+    }
+  }
+}
+EOF
+```
+
+See [USAGE.md](./USAGE.md) for detailed configuration options and usage examples.
 
 ### Cursor AI setup
 
